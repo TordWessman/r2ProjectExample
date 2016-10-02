@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{E488A33E-BDBC-44AB-A557-1458F44C440D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\..\r2Project\Src\Core\Core.csproj", "{20F7565B-91DE-40F9-80BE-C83D1B93C537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio", "..\..\r2Project\Src\Audio\Audio.csproj", "{3FC18E0E-01D6-4816-89A6-0AE2A300B1C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNotifications", "..\..\r2Project\Src\PushNotifications\PushNotifications.csproj", "{E6DED973-A7AE-40AB-85B4-4E06BE4A0135}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20F7565B-91DE-40F9-80BE-C83D1B93C537}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20F7565B-91DE-40F9-80BE-C83D1B93C537}.Debug|x86.Build.0 = Debug|Any CPU
+		{20F7565B-91DE-40F9-80BE-C83D1B93C537}.Release|x86.ActiveCfg = Release|Any CPU
+		{20F7565B-91DE-40F9-80BE-C83D1B93C537}.Release|x86.Build.0 = Release|Any CPU
+		{3FC18E0E-01D6-4816-89A6-0AE2A300B1C8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3FC18E0E-01D6-4816-89A6-0AE2A300B1C8}.Debug|x86.Build.0 = Debug|Any CPU
+		{3FC18E0E-01D6-4816-89A6-0AE2A300B1C8}.Release|x86.ActiveCfg = Release|Any CPU
+		{3FC18E0E-01D6-4816-89A6-0AE2A300B1C8}.Release|x86.Build.0 = Release|Any CPU
+		{E488A33E-BDBC-44AB-A557-1458F44C440D}.Debug|x86.ActiveCfg = Debug|x86
+		{E488A33E-BDBC-44AB-A557-1458F44C440D}.Debug|x86.Build.0 = Debug|x86
+		{E488A33E-BDBC-44AB-A557-1458F44C440D}.Release|x86.ActiveCfg = Release|x86
+		{E488A33E-BDBC-44AB-A557-1458F44C440D}.Release|x86.Build.0 = Release|x86
+		{E6DED973-A7AE-40AB-85B4-4E06BE4A0135}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6DED973-A7AE-40AB-85B4-4E06BE4A0135}.Debug|x86.Build.0 = Debug|Any CPU
+		{E6DED973-A7AE-40AB-85B4-4E06BE4A0135}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6DED973-A7AE-40AB-85B4-4E06BE4A0135}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TestClient\TestClient.csproj
+	EndGlobalSection
+EndGlobal
