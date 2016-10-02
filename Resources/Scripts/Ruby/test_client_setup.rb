@@ -9,13 +9,13 @@ class MainClass  < ScriptBase
 		core = @go.robot.get("core")
 
 		audio_factory = @go.robot.get("audio_factory")
-		tts = audio_factory.create_espeak("es");	
-		tts.start
-		core.add_device tts
+		#tts = audio_factory.create_espeak("tts");	
+		#tts.start
+		#core.add_device tts
 
-		mp3 = audio_factory.create_mp3_player("mp3");	
-		mp3.start
-		core.add_device mp3
+		#mp3 = audio_factory.create_mp3_player("mp3");	
+		#mp3.start
+		#core.add_device mp3
 
 		OP::msg "Test SETUP DONE!"
 
