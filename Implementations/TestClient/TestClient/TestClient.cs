@@ -4,7 +4,7 @@ using Core;
 using System.IO;
 using PushNotifications;
 using Core.Memory;
-using Core.Network.Http;
+using Core.Network.Web;
 using Audio;
 
 namespace TestClient
@@ -14,6 +14,7 @@ namespace TestClient
 		private BaseContainer m_base;
 		private IScriptProcess m_setupScript;
 		private AudioFactory m_audioFactory;
+		private WebFactory m_webFactory;
 
 		public TestClient ()
 		{
@@ -39,14 +40,22 @@ namespace TestClient
 			// Add the audio factory to the known devices list.
 			m_base.AddDevice (m_audioFactory);
 
-			// Set up http server
-			IHttpServer httpServer = deviceFactory.CreateHttpServer (Settings.Identifiers.HttpServer(), Settings.Consts.HttpPort());
+			var httpFactory = deviceFactory.CreateWebFactory ("http_factory");
+				
+			// Create a simple http server
+			IWebServer httpServer = httpFactory.CreateHttpServer (Settings.Identifiers.HttpServer(), Settings.Consts.HttpPort());
 
-			// Adds a Json interpreter which opens up access to devices implementing the "IJSONAccessible" interface to be accessed through the http server
-			httpServer.AddInterpreter (deviceFactory.CreateJsonInterpreter (Settings.Consts.DeviceListenerPath()));
+			// Creates a receiver capable of communicating object data ("remote controll" of devices.)
+			IWebObjectReceiver receiver = httpFactory.CreateDeviceObjectReceiver ();
 
-			// Adds an image feeder which allows the transmission of images through the http server
-			httpServer.AddInterpreter (deviceFactory.CreateImageInterpreter (Settings.Paths.WebImages(), Settings.Consts.ImageListenerPath()));
+			// Creates an endpoint listening to the path "/json" using the receiver for interpreting requests.
+			IWebEndpoint jsonEndpoint = httpFactory.CreateJsonEndpoint ("/json", receiver);
+
+			// Add the json endpoint to the server
+			httpServer.AddEndpoint (jsonEndpoint);
+
+			// Add another endpoint serving files
+			httpServer.AddEndpoint (httpFactory.CreateFileEndpoint (Settings.Paths.WebImages(), Settings.Consts.ImageListenerPath()));
 
 			// Add the httpServer to the known devices list.
 			m_base.AddDevice (httpServer);
